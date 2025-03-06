@@ -1,18 +1,30 @@
 package appli.accueil;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 public class LoginController {
-    @FXML
-    private Label welcomeText;
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
+    private TextField textEmail;
+
     @FXML
-    protected void onHelloButtonClickB() {
-        welcomeText.setText("OUIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
+    private TextField textMdp;
+
+    @FXML
+    void connexion(ActionEvent event) {
+        if (textEmail.getText().equals("a") && textMdp.getText().equals("a")) {
+            System.out.println(textEmail.getText());
+            System.out.println(textMdp.getText());
+        }else {
+            System.out.println("Erreur de connexion");
+        }
     }
+
+    @FXML
+    void forgotMdp(ActionEvent event) {
+
+    }
+
 }

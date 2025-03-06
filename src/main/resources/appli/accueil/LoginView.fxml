@@ -3,13 +3,23 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="appli.accueil.LoginController">
+<VBox alignment="CENTER" prefHeight="410.0" prefWidth="180.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.LoginController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-
-    <Label fx:id="welcomeText" />
-    <Button onAction="#onHelloButtonClick" text="AABBCCDD" />
-   <Button mnemonicParsing="false" prefHeight="19.0" prefWidth="77.0" text="EE" onAction="#onHelloButtonClickB" />
+   <Label alignment="TOP_CENTER" text="Bienvenu !">
+      <font>
+         <Font size="21.0" />
+      </font>
+   </Label>
+   <Label text="Votre Email" />
+   <TextField fx:id="textEmail" />
+   <Label text="Votre mot de passe" />
+   <TextField  fx:id="textMdp" />
+   <Label alignment="TOP_CENTER" prefHeight="17.0" prefWidth="93.0" text="Label erreur" textAlignment="CENTER" textFill="#fb0000" />
+    <Button onAction="#connexion" text="Connexion" />
+   <Button mnemonicParsing="false" onAction="#forgotMdp" prefHeight="25.0" prefWidth="136.0" text="Mot de passe oublié" />
+   <Button mnemonicParsing="false" text="Inscription" />
 </VBox>
