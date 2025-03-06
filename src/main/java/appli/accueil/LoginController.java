@@ -1,8 +1,11 @@
 package appli.accueil;
 
+import appli.StartApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+
+import java.io.IOException;
 
 public class LoginController {
 
@@ -26,5 +29,8 @@ public class LoginController {
     void forgotMdp(ActionEvent event) {
 
     }
-
+    @FXML
+    void inscription(ActionEvent event) throws IOException {
+        StartApplication.changeScene("accueil/Inscription");
+    }
 }
