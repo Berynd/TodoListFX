@@ -20,7 +20,7 @@
    <TextField fx:id="textEmail" />
    <Label text="Votre mot de passe" />
    <TextField fx:id="textMdp" />
-   <Label alignment="TOP_CENTER" prefHeight="17.0" prefWidth="93.0" text="Label erreur" textAlignment="CENTER" textFill="#fb0000" />
+   <Label alignment="TOP_CENTER" prefHeight="17.0" prefWidth="93.0" textAlignment="CENTER" textFill="#fb0000" fx:id="erreur"/>
     <Button onAction="#connexion" text="Connexion" />
    <Button mnemonicParsing="false" onAction="#forgotMdp" prefHeight="25.0" prefWidth="136.0" text="Mot de passe oublié" />
    <Button mnemonicParsing="false" onAction="#inscription" text="Inscription" />

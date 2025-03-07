@@ -9,21 +9,21 @@ public class Utilisateur {
     private String mdp;
     private String role;
 
-    public Utilisateur(int id_user, String nom, String prenom, String email, String mdp, String role) {
+    public Utilisateur(int id_user, String nom, String prenom, String email, String mdp) {
         this.id_user = id_user;
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.mdp = mdp;
-        this.role = role;
+        this.role = "belleHomme";
     }
 
-    public Utilisateur(String nom, String prenom, String email, String role, String mdp) {
+    public Utilisateur(String nom, String prenom, String email, String mdp) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
-        this.role = role;
         this.mdp = mdp;
+        this.role = "belleHomme";
     }
 
     public Utilisateur(String email, String mdp) {

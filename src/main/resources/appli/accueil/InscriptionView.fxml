@@ -17,15 +17,15 @@
         </font>
     </Label>
     <Label text="nom" />
-    <TextField fx:id="textEmail" />
+    <TextField fx:id="nom" />
     <Label text="prenom" />
-    <TextField fx:id="textMdp" />
+    <TextField fx:id="prenom" />
    <Label text="email" />
-   <TextField fx:id="textMdp1" />
+   <TextField fx:id="email" />
    <Label text="mot de passe" />
-   <TextField fx:id="textMdp11" />
+   <TextField fx:id="mdp" />
    <Label text="confirmation" />
-   <TextField fx:id="textMdp111" />
+   <TextField fx:id="confirmation" />
     <Button onAction="#onInscription" text="Inscription" />
     <Button mnemonicParsing="false" onAction="#onRetour" text="retour" />
 </VBox>

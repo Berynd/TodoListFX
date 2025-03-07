@@ -14,7 +14,7 @@ public class UtilisateurRepository {
     private Connection connexion;
 
     public UtilisateurRepository() {
-        Connection connexion = Database.getConnexion();
+        connexion = Database.getConnexion();
     }
 
     public void ajouterUtilisateur(Utilisateur utilisateur) {
@@ -32,16 +32,47 @@ public class UtilisateurRepository {
             System.out.println("Erreur lors de l'ajout de l'utilisateur : " + e.getMessage());
         }
     }
+    public boolean connexion(String email, String mdp) {
+        String sql = "SELECT * FROM user WHERE email = ? AND mdp = ?";
+        try {
+            PreparedStatement stmt = connexion.prepareStatement(sql);
+            stmt.setString(1, email);
+            stmt.setString(2, mdp);
+            stmt.executeQuery();
+            ResultSet rs = stmt.getResultSet();
+            System.out.println("connexion réussi");
+            return true;
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de la recherche de l'utilisateur : " + e.getMessage());
+            return false;
+        }
+
+    }
+    public boolean verifEmail(String email) {
+        String sql = "SELECT * FROM user WHERE email = ?";
+        try {
+            PreparedStatement stmt = connexion.prepareStatement(sql);
+            stmt.setString(1, email);
+            stmt.executeQuery();
+            ResultSet rs = stmt.getResultSet();
+            System.out.println("compte existe déja");
+            return false;
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de la recherche de l'utilisateur : " + e.getMessage());
+            return true;
+        }
+
+    }
     public Object getUtilisateurParEmail(String email) {
         Utilisateur user = null;
         String sql = "SELECT * FROM user WHERE email = ?";
         try {
             PreparedStatement stmt = connexion.prepareStatement(sql);
             stmt.setString(1, email);
-            stmt.executeUpdate();
+            stmt.executeQuery();
             ResultSet rs = stmt.getResultSet();
             if (rs.next()) {
-                user = new Utilisateur(rs.getInt("id_user"),rs.getString("nom"), rs.getString("prenom"),rs.getString("email"),rs.getString("mdp"),rs.getString("role"));
+                user = new Utilisateur(rs.getInt("id_user"),rs.getString("nom"), rs.getString("prenom"),rs.getString("email"),rs.getString("mdp"));
             }
         } catch (SQLException e) {
             System.out.println("Erreur lors de l'ajout de l'utilisateur : " + e.getMessage());
@@ -54,10 +85,10 @@ public class UtilisateurRepository {
         String sql = "SELECT * FROM user";
         try {
             PreparedStatement stmt = connexion.prepareStatement(sql);
-            stmt.executeUpdate();
+            stmt.executeQuery();
             ResultSet rs = stmt.getResultSet();
             while (rs.next()){
-                user = new Utilisateur(rs.getInt("id_user"),rs.getString("nom"), rs.getString("prenom"),rs.getString("email"),rs.getString("mdp"),rs.getString("role"));
+                user = new Utilisateur(rs.getInt("id_user"),rs.getString("nom"), rs.getString("prenom"),rs.getString("email"),rs.getString("mdp"));
                 users.add(user);
             }
 
