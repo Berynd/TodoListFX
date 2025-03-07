@@ -50,15 +50,49 @@ public class UtilisateurRepository {
     }
     public ArrayList<Utilisateur> getTousLesUtilisateurs() {
         ArrayList<Utilisateur> users = new ArrayList<>();
+        Utilisateur user = null;
         String sql = "SELECT * FROM user";
         try {
             PreparedStatement stmt = connexion.prepareStatement(sql);
             stmt.executeUpdate();
             ResultSet rs = stmt.getResultSet();
+            while (rs.next()){
+                user = new Utilisateur(rs.getInt("id_user"),rs.getString("nom"), rs.getString("prenom"),rs.getString("email"),rs.getString("mdp"),rs.getString("role"));
+                users.add(user);
+            }
 
         } catch (SQLException e) {
             System.out.println("Erreur lors de l'ajout de l'utilisateur : " + e.getMessage());
         }
         return users;
     }
+    public void supprimerUtilisateurParEmail(String email) {
+        String sql = "DELETE FROM user WHERE email = ?";
+        try {
+            PreparedStatement stmt = connexion.prepareStatement(sql);
+            stmt.setString(1, email);
+            stmt.executeUpdate();
+            System.out.println("Utilisateur supprimer avec succès !");
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de l'ajout de l'utilisateur : " + e.getMessage());
+        }
+    }
+
+    public void mettreAJourUtilisateur(Utilisateur utilisateur) {
+        String sql = "UPDATE utilisateurs SET nom = ?, prenom = ?, mdp = ?, role = ? " +
+                "WHERE email = ?";
+        try {
+            PreparedStatement stmt = connexion.prepareStatement(sql);
+            stmt.setString(1, utilisateur.getNom());
+            stmt.setString(2, utilisateur.getPrenom());
+            stmt.setString(3, utilisateur.getMdp());
+            stmt.setString(4, utilisateur.getRole());
+            stmt.setString(5, utilisateur.getEmail());
+            stmt.executeUpdate();
+            System.out.println("Utilisateur modifier avec succès !");
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de l'ajout de l'utilisateur : " + e.getMessage());
+        }
+    }
+
 }
