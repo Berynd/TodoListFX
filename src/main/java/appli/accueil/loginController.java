@@ -35,6 +35,8 @@ public class loginController {
     @FXML
     private Label labelErreur;
 
+
+
     @FXML
     private TextField textEmail;
 
@@ -43,11 +45,13 @@ public class loginController {
 
     @FXML
     void onConnexionButtonClick(ActionEvent event) {
+        labelErreur.setVisible(false);
         System.out.println(textEmail.getText()+""+""+textMDP.getText());
         if(textEmail.getText().equals("az@az") && textMDP.getText().equals("azerty123") ){
             labelErreur.setText("Connexion reussi");
         }
         else {
+            labelErreur.setVisible(true);
             labelErreur.setText("t nul ff15 ?");
         }
     }
