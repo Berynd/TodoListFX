@@ -18,14 +18,14 @@ public class UtilisateurRepository {
     }
 
     public void ajouterUtilisateur(Utilisateur utilisateur) {
-        String sql = "INSERT INTO user (nom, prenom, email, mdp, role) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO utilisateur (nom, prenom, email, mot_de_passe) VALUES (?, ?, ?, ?)";
         try {
             PreparedStatement stmt = connexion.prepareStatement(sql);
             stmt.setString(1, utilisateur.getNom());
             stmt.setString(2, utilisateur.getPrenom());
             stmt.setString(3, utilisateur.getEmail());
             stmt.setString(4, utilisateur.getMdp());
-            stmt.setString(5, utilisateur.getRole());
+
             stmt.executeUpdate();
             System.out.println("Utilisateur ajouté avec succès !");
         } catch (SQLException e) {
@@ -33,7 +33,7 @@ public class UtilisateurRepository {
         }
     }
     public boolean connexion(String email, String mdp) {
-        String sql = "SELECT * FROM user WHERE email = ? AND mdp = ?";
+        String sql = "SELECT * FROM utilisateur WHERE email = ? AND mot_de_passe = ?";
         try {
             PreparedStatement stmt = connexion.prepareStatement(sql);
             stmt.setString(1, email);
@@ -49,13 +49,12 @@ public class UtilisateurRepository {
 
     }
     public boolean verifEmail(String email) {
-        String sql = "SELECT * FROM user WHERE email = ?";
+        String sql = "SELECT * FROM utilisateur WHERE email = ?";
         try {
             PreparedStatement stmt = connexion.prepareStatement(sql);
             stmt.setString(1, email);
             stmt.executeQuery();
             ResultSet rs = stmt.getResultSet();
-            System.out.println("compte existe déja");
             return false;
         } catch (SQLException e) {
             System.out.println("Erreur lors de la recherche de l'utilisateur : " + e.getMessage());
@@ -65,7 +64,7 @@ public class UtilisateurRepository {
     }
     public Object getUtilisateurParEmail(String email) {
         Utilisateur user = null;
-        String sql = "SELECT * FROM user WHERE email = ?";
+        String sql = "SELECT * FROM utilisateur WHERE email = ?";
         try {
             PreparedStatement stmt = connexion.prepareStatement(sql);
             stmt.setString(1, email);
@@ -82,7 +81,7 @@ public class UtilisateurRepository {
     public ArrayList<Utilisateur> getTousLesUtilisateurs() {
         ArrayList<Utilisateur> users = new ArrayList<>();
         Utilisateur user = null;
-        String sql = "SELECT * FROM user";
+        String sql = "SELECT * FROM utilisateur";
         try {
             PreparedStatement stmt = connexion.prepareStatement(sql);
             stmt.executeQuery();
@@ -98,7 +97,7 @@ public class UtilisateurRepository {
         return users;
     }
     public void supprimerUtilisateurParEmail(String email) {
-        String sql = "DELETE FROM user WHERE email = ?";
+        String sql = "DELETE FROM utilisateur WHERE email = ?";
         try {
             PreparedStatement stmt = connexion.prepareStatement(sql);
             stmt.setString(1, email);
@@ -110,15 +109,14 @@ public class UtilisateurRepository {
     }
 
     public void mettreAJourUtilisateur(Utilisateur utilisateur) {
-        String sql = "UPDATE utilisateurs SET nom = ?, prenom = ?, mdp = ?, role = ? " +
+        String sql = "UPDATE utilisateur SET nom = ?, prenom = ?, mot_de_passe = ?, " +
                 "WHERE email = ?";
         try {
             PreparedStatement stmt = connexion.prepareStatement(sql);
             stmt.setString(1, utilisateur.getNom());
             stmt.setString(2, utilisateur.getPrenom());
             stmt.setString(3, utilisateur.getMdp());
-            stmt.setString(4, utilisateur.getRole());
-            stmt.setString(5, utilisateur.getEmail());
+            stmt.setString(4, utilisateur.getEmail());
             stmt.executeUpdate();
             System.out.println("Utilisateur modifier avec succès !");
         } catch (SQLException e) {

@@ -6,29 +6,26 @@ public class Utilisateur {
     private String nom;
     private String prenom;
     private String email;
-    private String mdp;
-    private String role;
+    private String mot_de_passe;
 
     public Utilisateur(int id_user, String nom, String prenom, String email, String mdp) {
         this.id_user = id_user;
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
-        this.mdp = mdp;
-        this.role = "belleHomme";
+        this.mot_de_passe = mdp;
     }
 
     public Utilisateur(String nom, String prenom, String email, String mdp) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
-        this.mdp = mdp;
-        this.role = "belleHomme";
+        this.mot_de_passe = mdp;
     }
 
     public Utilisateur(String email, String mdp) {
         this.email = email;
-        this.mdp = mdp;
+        this.mot_de_passe = mdp;
     }
 
     public int getId_user() {
@@ -64,20 +61,13 @@ public class Utilisateur {
     }
 
     public String getMdp() {
-        return mdp;
+        return mot_de_passe;
     }
 
     public void setMdp(String mdp) {
-        this.mdp = mdp;
+        this.mot_de_passe = mdp;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
 
     @Override
     public String toString() {
@@ -86,8 +76,7 @@ public class Utilisateur {
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", email='" + email + '\'' +
-                ", mdp='" + mdp + '\'' +
-                ", role='" + role + '\'' +
+                ", mdp='" + mot_de_passe + '\'' +
                 '}';
     }
 }

@@ -7,10 +7,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import model.Utilisateur;
 import repository.UtilisateurRepository;
+import repository.UtilisateurRepository;
+import model.Utilisateur;
 
 import java.io.IOException;
 
 public class LoginController {
+
+    private UtilisateurRepository utilisateurRepository = new UtilisateurRepository();
+
 
     @FXML
     private TextField textEmail;
@@ -22,14 +27,14 @@ public class LoginController {
     private Label erreur;
 
     @FXML
-    void connexion(ActionEvent event) {
-        UtilisateurRepository connexion = new UtilisateurRepository();
-        if (!connexion.connexion(textEmail.getText(), textMdp.getText())) {
+    void connexion(ActionEvent event) throws IOException {
+        if (!utilisateurRepository.connexion(textEmail.getText(), textMdp.getText())) {
             System.out.println("Erreur connexion");
             erreur.setText("Erreur connexion");
         }else{
             System.out.println("Connexion Réussi");
             erreur.setText("Connexion Réussi");
+            StartApplication.changeScene("accueil/accueil");
         }
     }
 

@@ -9,9 +9,14 @@ import repository.UtilisateurRepository;
 
 import java.io.IOException;
 import java.sql.SQLOutput;
+import repository.UtilisateurRepository;
+import model.Utilisateur;
 
 
 public class InscriptionController {
+
+
+    private UtilisateurRepository utilisateurRepository = new UtilisateurRepository();
 
     @FXML
     private TextField nom;
@@ -30,10 +35,9 @@ public class InscriptionController {
 
     @FXML
     void onInscription(ActionEvent event) {
-        UtilisateurRepository verif = new UtilisateurRepository();
         if (!nom.getText().isEmpty() && !prenom.getText().isEmpty()  && !email.getText().isEmpty() && !mdp.getText().isEmpty() && !confirmation.getText().isEmpty()) {
             if (confirmation.getText().equals(mdp.getText())) {
-                if (!verif.verifEmail(email.getText())){
+                if (utilisateurRepository.verifEmail(email.getText())){
                     System.out.println("compte existe deja");
                 }else{
                     Utilisateur user = new Utilisateur(nom.getText(), prenom.getText(),email.getText(),mdp.getText());
