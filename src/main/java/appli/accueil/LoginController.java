@@ -9,6 +9,7 @@ import model.Utilisateur;
 import repository.UtilisateurRepository;
 import repository.UtilisateurRepository;
 import model.Utilisateur;
+import session.SessionUtilisateur;
 
 import java.io.IOException;
 
@@ -28,13 +29,17 @@ public class LoginController {
 
     @FXML
     void connexion(ActionEvent event) throws IOException {
-        if (!utilisateurRepository.connexion(textEmail.getText(), textMdp.getText())) {
-            System.out.println("Erreur connexion");
-            erreur.setText("Erreur connexion");
+        Utilisateur utilisateur = utilisateurRepository.connexionUser(textEmail.getText(), textMdp.getText());
+        if (utilisateur != null) {
+            System.out.println("Connexion réussie pour : " + utilisateur.getNom());
+            SessionUtilisateur.getInstance().sauvegardeSession(utilisateur);
+            erreur.setVisible(false);
+            StartApplication.changeScene("accueil/TableauUser");
         }else{
-            System.out.println("Connexion Réussi");
-            erreur.setText("Connexion Réussi");
-            StartApplication.changeScene("accueil/accueil");
+            System.out.println("Échec de la connexion. Email ou mot de passe incorrect.");
+            erreur.setText("Email ou mot de passe incorrect.");
+            erreur.setVisible(true);
+
         }
     }
 
