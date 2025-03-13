@@ -11,8 +11,8 @@
    <children>
       <TextField fx:id="textPrenom" layoutX="107.0" layoutY="232.0" />
       <TextField fx:id="textNom" layoutX="106.0" layoutY="133.0" />
-      <TextField fx:id="textMdp" layoutX="475.0" layoutY="174.0" />
-      <PasswordField fx:id="textEmail" layoutX="107.0" layoutY="318.0" />
+      <TextField fx:id="textMdp" layoutX="106.0" layoutY="327.0" />
+      <PasswordField fx:id="textEmail" layoutX="476.0" layoutY="174.0" />
       <PasswordField fx:id="textConfMdp" layoutX="476.0" layoutY="292.0" />
       <Label fx:id="titre" layoutX="242.0" layoutY="19.0" text="Inscritpion" textOverrun="CLIP" underline="true">
          <font>
@@ -24,9 +24,9 @@
       <Label layoutX="24.0" layoutY="331.0" text="Email :" />
       <Label layoutX="348.0" layoutY="178.0" text="Mots de pass :" />
       <Label layoutX="338.0" layoutY="295.0" text="Confirmation MDP :" />
-      <Label fx:id="erreurMDPconf" layoutX="449.0" layoutY="336.0" text="Label" textFill="#fc0000" />
-      <Label fx:id="erreurmdp" layoutX="449.0" layoutY="220.0" text="Label" textFill="RED" />
-      <Label fx:id="error" layoutX="312.0" layoutY="103.0" text="Label" textFill="#ee0808" />
+      <Label fx:id="erreurMDPconf" layoutX="449.0" layoutY="336.0" textFill="#fc0000" />
+      <Label fx:id="erreurmdp" layoutX="449.0" layoutY="220.0" textFill="RED" />
+      <Label fx:id="error" layoutX="312.0" layoutY="103.0" textFill="#ee0808" />
       <Button fx:id="Connexion" layoutX="242.0" layoutY="382.0" mnemonicParsing="false" onAction="#OnActionConnexion" text="Connexion" />
       <Button fx:id="Inscription" layoutX="369.0" layoutY="382.0" mnemonicParsing="false" onAction="#OnActionInscription" text="Inscription" />
    </children>

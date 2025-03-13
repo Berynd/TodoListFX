@@ -54,7 +54,31 @@ public class inscriptionController {
 
     @FXML
     void OnActionInscription(ActionEvent event) {
+    if(textEmail.getText().isEmpty() &&
+            textNom.getText().isEmpty() &&
+            textPrenom.getText().isEmpty() &&
+            textMdp.getText().isEmpty() &&
+            textConfMdp.getText().isEmpty()
+    ){
+        erreurmdp.setText("Veuillez remplir tous les champs");
+        erreurMDPconf.setText("Veuillez remplir tous les champs");
 
+    }
+    if (textEmail.getText().equals("az@az")
+
+            && textNom.getText().equals("az")
+            && textPrenom.getText().equals("az")
+            && textMdp.getText().equals("az")
+            &&  textConfMdp.getText().equals(textMdp.getText())) {
+
+        error.setText("bienvenu au blue lock !!!");
+        erreurMDPconf.setText("validation!!!!!");
+        System.out.println(textEmail.getText()+textNom.getText()+textPrenom.getText()+textMdp.getText());
+    }
+    else {
+        System.out.println(textEmail.getText()+textNom.getText()+textPrenom.getText()+textMdp.getText());
+        System.out.println(textEmail.getText()+textNom.getText()+textPrenom.getText()+textMdp.getText()+textConfMdp.getText());
+    }
     }
 
 }
