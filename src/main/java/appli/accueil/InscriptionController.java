@@ -34,7 +34,7 @@ public class InscriptionController {
     private TextField confirmation;
 
     @FXML
-    void onInscription(ActionEvent event) {
+    void onInscription(ActionEvent event) throws IOException {
         if (!nom.getText().isEmpty() && !prenom.getText().isEmpty()  && !email.getText().isEmpty() && !mdp.getText().isEmpty() && !confirmation.getText().isEmpty()) {
             if (confirmation.getText().equals(mdp.getText())) {
                 if (utilisateurRepository.verifEmail(email.getText())){
@@ -43,6 +43,7 @@ public class InscriptionController {
                     Utilisateur user = new Utilisateur(nom.getText(), prenom.getText(),email.getText(),mdp.getText());
                     UtilisateurRepository ajouter = new UtilisateurRepository();
                     ajouter.ajouterUtilisateur(user);
+                    StartApplication.changeScene("accueil/Login");
                 }
             }else {
                 System.out.println("Erreur de confirmation");
