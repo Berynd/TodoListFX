@@ -30,5 +30,8 @@ public class AccueilController {
         System.out.println("Utilisateur déconnecté.");
         StartApplication.changeScene("accueil/Login");
     }
-
+    @FXML
+    void table() throws IOException {
+        StartApplication.changeScene("accueil/TableauUser");
+    }
 }

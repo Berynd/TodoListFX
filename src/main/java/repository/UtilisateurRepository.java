@@ -117,7 +117,7 @@ public class UtilisateurRepository {
             stmt.executeQuery();
             ResultSet rs = stmt.getResultSet();
             while (rs.next()){
-                user = new Utilisateur(rs.getInt("id_user"),rs.getString("nom"), rs.getString("prenom"),rs.getString("email"),rs.getString("mdp"));
+                user = new Utilisateur(rs.getInt("id_utilisateur"),rs.getString("nom"), rs.getString("prenom"),rs.getString("email"),rs.getString("mot_de_passe"));
                 users.add(user);
             }
 

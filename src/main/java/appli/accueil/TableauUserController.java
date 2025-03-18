@@ -8,6 +8,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Utilisateur;
+import repository.UtilisateurRepository;
 import session.SessionUtilisateur;
 
 import java.net.URL;
@@ -18,22 +19,32 @@ public class TableauUserController implements Initializable {
     @FXML
     private TableView<Utilisateur> tableView;
 
+    @FXML
+    private UtilisateurRepository utilisateurRepository = new UtilisateurRepository();
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        String[][] colonnes = {
-                { "Nom", "nom" },
-                { "Prénom", "prenom" },
-                { "Email", "mail" },
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        String [][] colonnes = {
+                { "Id Utilisateur","id_user" },
+                { "Nom","nom" },
+                { "Prénom","prenom" },
+                { "Email","email" },
+                // { "Rôle","role" },
         };
 
-        for (String[] colonne : colonnes) {
-            TableColumn<Utilisateur, String> maCol = new TableColumn<>(colonne[0]);
-            maCol.setCellValueFactory(new PropertyValueFactory<>(colonne[1]));
-            this.tableView.getColumns().add(maCol);
+        for ( int i = 0 ; i < colonnes.length ; i ++ ){
 
+//Création de la colonne avec le titre
+            TableColumn<Utilisateur, String> maCol = new TableColumn<>(colonnes[i][0]);
+
+//Ligne permettant la liaison automatique de la cellule avec la propriété
+            maCol.setCellValueFactory(new PropertyValueFactory<Utilisateur, String>(colonnes[i][1]));
+
+//Ajout de la colonne dans notre tableau
+            tableView.getColumns().add(maCol);
         }
-
+        System.out.println(utilisateurRepository.getTousLesUtilisateurs());
+        tableView.getItems().addAll(utilisateurRepository.getTousLesUtilisateurs());
     }
 }
 
