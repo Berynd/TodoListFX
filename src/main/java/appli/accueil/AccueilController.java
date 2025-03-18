@@ -4,15 +4,25 @@ import appli.StartApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import model.Liste;
 import model.Utilisateur;
 import session.SessionUtilisateur;
 
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class AccueilController {
 
     @FXML
     private Button deconnecter;
+
+    @FXML
+    private ListView<Liste> listeView;
+
+    @FXML
+    private TextField nomList;
 
     @FXML
     private Label welcome;
@@ -33,5 +43,14 @@ public class AccueilController {
     @FXML
     void table() throws IOException {
         StartApplication.changeScene("accueil/TableauUser");
+    }
+    @FXML
+    void modifProfil(ActionEvent event) {
+
+    }
+
+    @FXML
+    void newList(ActionEvent event) {
+
     }
 }
