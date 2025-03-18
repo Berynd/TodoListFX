@@ -1,5 +1,6 @@
 package appli.accueil;
 
+import appli.StartApplication;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,6 +12,7 @@ import model.Utilisateur;
 import repository.UtilisateurRepository;
 import session.SessionUtilisateur;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -45,6 +47,10 @@ public class TableauUserController implements Initializable {
         }
         System.out.println(utilisateurRepository.getTousLesUtilisateurs());
         tableView.getItems().addAll(utilisateurRepository.getTousLesUtilisateurs());
+    }
+    @FXML
+    void retour() throws IOException {
+        StartApplication.changeScene("accueil/Accueil");
     }
 }
 

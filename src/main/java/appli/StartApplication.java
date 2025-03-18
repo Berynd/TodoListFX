@@ -14,7 +14,7 @@ public class StartApplication extends Application {
     public void start(Stage stage) throws IOException {
         mainStage = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("accueil/LoginView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 201.0, 419.0);
         mainStage.setTitle("TodoList");
         mainStage.setScene(scene);
         mainStage.show();

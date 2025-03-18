@@ -139,14 +139,14 @@ public class UtilisateurRepository {
     }
 
     public void mettreAJourUtilisateur(Utilisateur utilisateur) {
-        String sql = "UPDATE utilisateur SET nom = ?, prenom = ?, mot_de_passe = ?, " +
-                "WHERE email = ?";
+        String sql = "UPDATE utilisateur SET nom = ?, prenom = ?, email = ? WHERE id_utilisateur = ?";
+
         try {
             PreparedStatement stmt = connexion.prepareStatement(sql);
             stmt.setString(1, utilisateur.getNom());
             stmt.setString(2, utilisateur.getPrenom());
-            stmt.setString(3, utilisateur.getMdp());
-            stmt.setString(4, utilisateur.getEmail());
+            stmt.setString(3, utilisateur.getEmail());
+            stmt.setInt(4, utilisateur.getId_user());
             stmt.executeUpdate();
             System.out.println("Utilisateur modifier avec succès !");
         } catch (SQLException e) {
