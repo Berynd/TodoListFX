@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import model.Utilisateurs;
 
 import java.io.IOException;
 
@@ -54,30 +55,18 @@ public class inscriptionController {
 
     @FXML
     void OnActionInscription(ActionEvent event) {
-    if(textEmail.getText().isEmpty() &&
-            textNom.getText().isEmpty() &&
-            textPrenom.getText().isEmpty() &&
-            textMdp.getText().isEmpty() &&
-            textConfMdp.getText().isEmpty()
-    ){
-        erreurmdp.setText("Veuillez remplir tous les champs");
-        erreurMDPconf.setText("Veuillez remplir tous les champs");
-
-    }
-    if (textEmail.getText().equals("az@az")
-
-            && textNom.getText().equals("az")
-            && textPrenom.getText().equals("az")
-            && textMdp.getText().equals("az")
-            &&  textConfMdp.getText().equals(textMdp.getText())) {
-
-        error.setText("bienvenu au blue lock !!!");
-        erreurMDPconf.setText("validation!!!!!");
-        System.out.println(textEmail.getText()+textNom.getText()+textPrenom.getText()+textMdp.getText());
+    if(textConfMdp.getText().isEmpty()
+            || textMdp.getText().isEmpty()
+            || textEmail.getText().isEmpty()
+            || textNom.getText().isEmpty()
+            || textPrenom.getText().isEmpty()){
+        System.out.println("belek au chant");
+    } else if (textMdp.getText() != textConfMdp.getText()) {
+        System.out.println("mdp ne corresonde pas");
     }
     else {
-        System.out.println(textEmail.getText()+textNom.getText()+textPrenom.getText()+textMdp.getText());
-        System.out.println(textEmail.getText()+textNom.getText()+textPrenom.getText()+textMdp.getText()+textConfMdp.getText());
+        Utilisateurs user = new Utilisateurs(textNom.getText(), textPrenom.getText(), textEmail.getText(), textConfMdp.getText(),);
+
     }
     }
 
