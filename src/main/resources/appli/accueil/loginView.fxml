@@ -8,21 +8,30 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="613.0" prefWidth="329.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.loginController">
+<VBox alignment="CENTER" prefHeight="382.0" prefWidth="255.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.LoginController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
+   <Label text="Bienvenue !">
+      <font>
+         <Font name="Arial Bold" size="15.0" />
+      </font>
+   </Label>
+   <Label text="votre email :">
+      <font>
+         <Font name="Arial" size="12.0" />
+      </font>
+   </Label>
+   <TextField fx:id="email" alignment="CENTER" promptText="ethanpassard@gmail.com" />
+   <Label text="votre mot de passe :" />
+   <PasswordField fx:id="mdp" alignment="CENTER" promptText="12345678" />
+   <Label fx:id="erreur" textFill="RED">
+      <font>
+         <Font name="Arial Bold" size="12.0" />
+      </font></Label>
+   <Button fx:id="connexion" onAction="#boutonConnexion" text="connexion" />
+   <Button fx:id="oubliemdp" onAction="#boutonMdpOublie" text="mot de passe oublié" />
+   <Button fx:id="inscription" mnemonicParsing="false" onAction="#boutonInscription" text="inscription" />
 
-    <Label fx:id="TItre" contentDisplay="CENTER" text="Bonjours" textAlignment="CENTER">
-        <font>
-            <Font size="28.0" />
-        </font></Label>
-    <Label fx:id="EmailText" text="Email :" />
-    <TextField fx:id="textEmail" prefHeight="26.0" prefWidth="306.0" />
-    <Label fx:id="MDPtexte" text="MDP :" textFill="#0a0909" />
-    <PasswordField fx:id="textMDP" />
-    <Label fx:id="labelErreur" text="Label erreur" textAlignment="CENTER" textFill="#fc0000" />
-    <Button fx:id="BouttonConnexion" onAction="#onConnexionButtonClick" text="Connexion" />
-    <Button fx:id="BouttonMDPoublie" mnemonicParsing="false" onAction="#onMdpOublieButtonClick" text="MDP oublié" />
-    <Button fx:id="BouttonIsci" mnemonicParsing="false" onAction="#onInscriptionButtonClick" text="Inscription" />
+
 </VBox>

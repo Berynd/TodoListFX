@@ -2,7 +2,6 @@ package database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
 public class Database {
     private static final String SERVEUR = "localhost:8889";
     private static final String NOM_BDD = "SLAM1_todolist";
@@ -11,6 +10,16 @@ public class Database {
     private static String getUrl() {
         return "jdbc:mysql://" + SERVEUR + "/" + NOM_BDD + "?serverTimezone=UTC";
     }
+
+    public static void main(String[] args) {
+        Connection cnx = getConnexion();
+        if (cnx != null) {
+            System.out.println("Connexion établie avec succès !");
+        } else {
+            System.out.println("Échec de la connexion à la base de données.");
+        }
+    }
+
     public static Connection getConnexion() {
         Connection cnx = null;
         try {
@@ -21,13 +30,5 @@ public class Database {
         }
         return cnx;
     }
-    public static void main(String[] args) {
-        Connection cnx = getConnexion();
-        if (cnx != null) {
-            System.out.println("Connexion établie avec succès !");
-        } else { System.out.println("Échec de la connexion à la base de données.");
-        }
-    }
-
-
 }
+

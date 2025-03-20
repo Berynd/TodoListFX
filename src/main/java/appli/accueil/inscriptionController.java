@@ -1,73 +1,83 @@
 package appli.accueil;
 
 import appli.StartApplication;
+import com.mysql.cj.util.Util;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import model.Utilisateurs;
-
 import java.io.IOException;
-
-public class inscriptionController {
-
-    @FXML
-    private Button Connexion;
+import repository.UtilisateurRepository;
+import model.Utilisateur;
 
 
-    @FXML
-    private Button Inscription;
+public class InscriptionController {
+    private UtilisateurRepository utilisateurRepository = new UtilisateurRepository();
 
     @FXML
-    private Label erreurMDPconf;
+    private Button connexion;
 
     @FXML
-    private Label erreurmdp;
+    private TextField prenom;
 
     @FXML
-    private Label error;
+    private TextField nom;
 
     @FXML
-    private PasswordField textConfMdp;
+    private TextField email;
 
     @FXML
-    private PasswordField textEmail;
+    private PasswordField mdp;
 
     @FXML
-    private TextField textMdp;
+    private PasswordField confirmationmdp;
 
     @FXML
-    private TextField textNom;
+    private Button inscription;
 
     @FXML
-    private TextField textPrenom;
+    private Label erreur;
+
 
     @FXML
-    private Label titre;
-
-    @FXML
-    void OnActionConnexion(ActionEvent event) throws IOException {
-        StartApplication.changeScene("accueil/login");
+    void boutonConnexion(ActionEvent event) throws IOException {
+        StartApplication.changeScene("accueil/Login");
 
     }
 
     @FXML
-    void OnActionInscription(ActionEvent event) {
-    if(textConfMdp.getText().isEmpty()
-            || textMdp.getText().isEmpty()
-            || textEmail.getText().isEmpty()
-            || textNom.getText().isEmpty()
-            || textPrenom.getText().isEmpty()){
-        System.out.println("belek au chant");
-    } else if (textMdp.getText() != textConfMdp.getText()) {
-        System.out.println("mdp ne corresonde pas");
-    }
-    else {
-        Utilisateurs user = new Utilisateurs(textNom.getText(), textPrenom.getText(), textEmail.getText(), textConfMdp.getText(),);
+    void boutonInscription(ActionEvent event) {
 
-    }
+        Utilisateur utilisateur = new Utilisateur(nom.getText(), prenom.getText(), email.getText(), mdp.getText(), confirmationmdp.getText());
+                utilisateurRepository.ajouterUtilisateur(utilisateur);
+
+        if (nom.getText().isEmpty()
+                || prenom.getText().isEmpty()
+                || email.getText().isEmpty()
+                || mdp.getText().isEmpty()
+                || confirmationmdp.getText().isEmpty()) {
+            erreur.setText("tout les champs doivent etre rempli");
+
+        }
+        else if (utilisateurRepository.getUtilisateurParEmail(email.getText()) != null) {
+            erreur.setText("Email Déja utilisé");
+
+        }
+        else if (!mdp.getText().equals(confirmationmdp.getText())) {
+            erreur.setText("mdp don't match just swipe");
+        }
+        else {
+            erreur.setText(" ");
+            System.out.println("Inscription réussis");
+            System.out.println("- " + nom.getText());
+            System.out.println("- " + prenom.getText());
+            System.out.println("- " + email.getText());
+            System.out.println("- " + mdp.getText());
+            System.out.println("- " + confirmationmdp.getText());
+        }
     }
 
 }
+

@@ -1,70 +1,62 @@
 package appli.accueil;
-
 import appli.StartApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import repository.UtilisateurRepository;
+import model.Utilisateur;
+
 
 import java.io.IOException;
 
-public class loginController {
+public class LoginController {
+    private UtilisateurRepository utilisateurRepository = new UtilisateurRepository();
 
     @FXML
-    private Button BouttonConnexion;
+    private Button connexion;
 
     @FXML
-    private Button BouttonIsci;
+    private TextField email;
 
     @FXML
-    private Button BouttonMDPoublie;
+    private Button inscription;
 
     @FXML
-    private Label EmailText;
+    private PasswordField mdp;
 
     @FXML
-    private Label MDPtexte;
+    private Button oubliemdp;
 
     @FXML
-    private Label TItre;
+    private Label erreur;
 
     @FXML
-    private Label labelErreur;
+    void boutonConnexion(ActionEvent event) {
+        Utilisateur utilisateur = utilisateurRepository.getUtilisateurParEmail(email.getText());
 
-
-
-    @FXML
-    private TextField textEmail;
-
-    @FXML
-    private PasswordField textMDP;
-
-    @FXML
-    void onConnexionButtonClick(ActionEvent event) {
-        labelErreur.setVisible(false);
-        System.out.println(textEmail.getText()+""+""+textMDP.getText());
-        if(textEmail.getText().equals("az@az") && textMDP.getText().equals("azerty123") ){
-            labelErreur.setText("Connexion reussi");
+        if (utilisateur == null) {
+            erreur.setText("email ou mdp incorrect");
         }
-
+        else if (!utilisateur.getMdp().equals(mdp.getText())) {
+            erreur.setText("email ou mdp incorrect");
+        }
         else {
-            labelErreur.setVisible(true);
-            labelErreur.setText("t nul ff15 ?");
+            erreur.setText(" ");
+            System.out.println("Connexion réussi");
         }
     }
 
     @FXML
-    void onInscriptionButtonClick(ActionEvent event) throws IOException {
-        StartApplication.changeScene("accueil/inscription");
+    void boutonInscription(ActionEvent event) throws IOException {
+        StartApplication.changeScene("accueil/Inscription");
     }
 
     @FXML
-    void onMdpOublieButtonClick(ActionEvent event) {
-        System.out.println(MDPtexte.getText());
+    void boutonMdpOublie(ActionEvent event) {
+
     }
 
 }

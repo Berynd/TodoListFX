@@ -5,18 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4e5d1af-15d2-4c63-bfaa-47b182ffde69" name="Changes" comment="feat : inscription change bug">
-      <change afterPath="$PROJECT_DIR$/src/main/java/appli/accueil/MotDePassOublierController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/database/Database.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/List.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Utilisateurs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repository/UtilisateurRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repository/UtilisateurRepositorye.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/appli/accueil/MotDePassOublieView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/appli/StartApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/StartApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/appli/accueil/MotDePassOublierController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/appli/accueil/inscriptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/accueil/inscriptionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/appli/accueil/loginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/accueil/loginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/List.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Utilisateurs.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/UtilisateurRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/UtilisateurRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/UtilisateurRepositorye.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/appli/accueil/MotDePassOublieView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/appli/accueil/inscriptionView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/appli/accueil/inscriptionView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/appli/accueil/loginView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/appli/accueil/loginView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +36,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Berynd"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Berynd/TodoListFX",
+    "accountId": "8f8f205a-c3df-4b33-814c-211cad5b08b7"
+  }
+}]]></component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -61,6 +75,7 @@
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "/Users/gabi/Desktop/dev/java/TodoListFX/src/main/java/appli/accueil",
+    "last_opened_file_path": "/Users/gabi/Desktop/dev/java/TodoListFX",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -103,6 +118,7 @@
       <workItem from="1741708910598" duration="1635000" />
       <workItem from="1741869863151" duration="4174000" />
       <workItem from="1742283897358" duration="3645000" />
+      <workItem from="1742476005847" duration="3282000" />
     </task>
     <task id="LOCAL-00001" summary="git init">
       <option name="closed" value="true" />
