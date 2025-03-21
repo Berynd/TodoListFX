@@ -11,6 +11,7 @@ import model.Utilisateur;
 import repository.ListeRepository;
 import session.SessionUtilisateur;
 
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -81,6 +82,23 @@ public class AccueilController implements Initializable {
     @FXML
     void table() throws IOException {
         StartApplication.changeScene("accueil/TableauUser");
+    }
+    @FXML
+    void OnTableViewPressed(javafx.scene.input.MouseEvent event) throws IOException {
+        int nbrClick = event.getClickCount();
+        if (nbrClick == 2) {
+            StartApplication.changeScene("accueil/Liste");
+
+        }
+    }
+    @FXML
+    void OnSupprimerListeClick(ActionEvent event) {
+        listeRepository.supprimerListe(tableView.getSelectionModel().getSelectedItem());
+        tableView.getItems().remove(tableView.getSelectionModel().getSelectedItem());
+    }
+    @FXML
+    void onModifierListeClick(ActionEvent event) {
+
     }
 
 
