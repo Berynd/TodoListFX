@@ -85,7 +85,11 @@ public class UtilisateurRepository {
             stmt.setString(1, email);
             stmt.executeQuery();
             ResultSet rs = stmt.getResultSet();
-            return false;
+            if(rs.next()) {
+                return true;
+            }else {
+                return false;
+            }
         } catch (SQLException e) {
             System.out.println("Erreur lors de la recherche de l'utilisateur : " + e.getMessage());
             return true;
@@ -147,6 +151,19 @@ public class UtilisateurRepository {
             stmt.setString(2, utilisateur.getPrenom());
             stmt.setString(3, utilisateur.getEmail());
             stmt.setInt(4, utilisateur.getId_user());
+            stmt.executeUpdate();
+            System.out.println("Utilisateur modifier avec succès !");
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de l'ajout de l'utilisateur : " + e.getMessage());
+        }
+    }
+    public void changeMdp(String mdp) {
+        String sql = "UPDATE utilisateur SET mot_de_passe = ? WHERE email = ?";
+
+        try {
+            PreparedStatement stmt = connexion.prepareStatement(sql);
+            stmt.setString(1,"e" );
+            stmt.setString(2, "e");
             stmt.executeUpdate();
             System.out.println("Utilisateur modifier avec succès !");
         } catch (SQLException e) {

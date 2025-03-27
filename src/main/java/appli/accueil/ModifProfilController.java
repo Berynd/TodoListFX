@@ -18,7 +18,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ModifProfilController {
-
+    private Utilisateur utilisateur;
     @FXML
     private TextField email;
 
