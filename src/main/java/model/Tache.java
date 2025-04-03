@@ -7,6 +7,8 @@ public class Tache {
     private int etat;
     private int ref_liste;
     private int ref_type;
+    private String nomListe;
+    private String nomType;
 
     public Tache(int id_tache, String nom, int etat, int ref_liste, int ref_type) {
         this.id_tache = id_tache;
@@ -14,6 +16,14 @@ public class Tache {
         this.etat = etat;
         this.ref_liste = ref_liste;
         this.ref_type = ref_type;
+    }
+
+    public Tache(int id_tache,String nom, int etat, String nomListe, String nomType) {
+        this.id_tache = id_tache;
+        this.nom = nom;
+        this.etat = etat;
+        this.nomListe = nomListe;
+        this.nomType = nomType;
     }
 
     public Tache(String nom, int etat, int ref_liste, int ref_type) {
@@ -25,6 +35,22 @@ public class Tache {
 
     public int getId_tache() {
         return id_tache;
+    }
+
+    public String getNomListe() {
+        return nomListe;
+    }
+
+    public void setNomListe(String nomListe) {
+        this.nomListe = nomListe;
+    }
+
+    public String getNomType() {
+        return nomType;
+    }
+
+    public void setNomtype(String nomtype) {
+        this.nomType = nomtype;
     }
 
     public void setId_tache(int id_tache) {

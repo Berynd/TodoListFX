@@ -103,6 +103,8 @@ public class AccueilController implements Initializable {
         if (nbrClick == 2) {
             StartApplication.changeScene("accueil/Liste");
 
+            ListeController controler = (ListeController) StartApplication.getControllerFromStage();
+            controler.initData(tableView.getSelectionModel().getSelectedItem().getNom(),tableView.getSelectionModel().getSelectedItem().getId_liste());
         }
     }
     @FXML
@@ -110,10 +112,7 @@ public class AccueilController implements Initializable {
         listeRepository.supprimerListe(tableView.getSelectionModel().getSelectedItem());
         tableView.getItems().remove(tableView.getSelectionModel().getSelectedItem());
     }
-    @FXML
-    void onModifierListeClick(ActionEvent event) {
 
-    }
 
 
 }

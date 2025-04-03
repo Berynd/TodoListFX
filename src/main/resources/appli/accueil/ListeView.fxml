@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="appli.accueil.ListeController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="420.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.ListeController">
+   <children>
+      <TableView fx:id="tableView" layoutX="24.0" layoutY="200.0" prefHeight="200.0" prefWidth="292.0" />
+      <Label layoutX="332.0" layoutY="39.0" text="Modification de la liste">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nomListe" layoutX="363.0" layoutY="120.0" />
+      <Label layoutX="363.0" layoutY="102.0" text="Nom de la liste :" />
+      <Button layoutX="402.0" layoutY="158.0" mnemonicParsing="false" onAction="#modifListe" text="Confirmer" />
+      <Button layoutX="146.0" layoutY="161.0" mnemonicParsing="false" onAction="#addTache" text="Ajouter" />
+      <Label layoutX="99.0" layoutY="40.0" text="Ajouter une tâche">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nomTache" layoutX="99.0" layoutY="86.0" />
+      <Label layoutX="99.0" layoutY="68.0" text="Nom de la tâche:" />
+      <Label layoutX="101.0" layoutY="111.0" text="Type :" />
+      <Label layoutX="371.0" layoutY="200.0" text="Ajouter un type">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nomType" layoutX="330.0" layoutY="263.0" prefHeight="25.0" prefWidth="106.0" />
+      <TextField layoutX="450.0" layoutY="263.0" prefHeight="25.0" prefWidth="106.0" />
+      <Label layoutX="330.0" layoutY="246.0" text="Nom du type :" />
+      <Label layoutX="450.0" layoutY="246.0" text="Code couleur :" />
+      <Button layoutX="391.0" layoutY="300.0" mnemonicParsing="false" onAction="#addType" text="Ajouter le type" />
+      <Button layoutX="530.0" layoutY="375.0" mnemonicParsing="false" onAction="#retour" text="Retour" />
+   </children>
 </AnchorPane>

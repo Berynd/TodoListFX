@@ -87,4 +87,17 @@ public class ListeRepository {
             System.out.println("Erreur lors de la supprimer liste "+e.getMessage());
         }
     }
+    public void modifierListe(String nom, int id) {
+        String sql = "UPDATE liste SET nom = ? WHERE id_liste = ?";
+        try {
+            PreparedStatement ps = connexion.prepareStatement(sql);
+            ps.setString(1, nom);
+            ps.setInt(2, id);
+            ps.executeUpdate();
+            ps.close();
+            System.out.println("Liste bien modifier");
+        }catch (SQLException e){
+            System.out.println("Erreur lors de la supprimer liste "+e.getMessage());
+        }
+    }
 }

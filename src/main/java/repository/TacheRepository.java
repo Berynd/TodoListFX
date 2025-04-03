@@ -3,9 +3,8 @@ package repository;
 import database.Database;
 import model.Tache;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class TacheRepository {
 
@@ -29,5 +28,21 @@ public class TacheRepository {
         }catch (SQLException e) {
             System.out.println("Erreur lors de l'ajout de la tache : " + e.getMessage());
         }
+    }
+    public ArrayList<Tache> getAllTache() {
+        ArrayList<Tache> taches = new ArrayList<>();
+        String sql = "SELECT t.id_tache,t.nom as nomTache,t.etat, l.nom as nomListe, type.nom as nomType FROM `tache` as t INNER JOIN liste as l ON l.id_liste = t.ref_liste INNER JOIN type ON type.id_type = t.ref_type";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.executeQuery();
+            ResultSet rs = stmt.getResultSet();
+            while (rs.next()){
+                Tache tache = new Tache(rs.getInt("id_tache"),rs.getString("nomTache"),rs.getInt("etat"),rs.getString("nomListe"),rs.getString("nomType"));
+                taches.add(tache);
+            }
+        }catch (SQLException e) {
+            System.out.println("Erreur lors de l'ajout de la tache : " + e.getMessage());
+        }
+        return taches;
     }
 }
