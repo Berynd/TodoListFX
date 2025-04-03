@@ -23,7 +23,8 @@ public class AccueilController implements Initializable {
     private TableView<Liste> tableView;
     @FXML
     private ListeRepository listeRepository = new ListeRepository();
-
+    @FXML
+    private Button admin;
     @FXML
     private TextField nomList;
     @FXML
@@ -35,6 +36,13 @@ public class AccueilController implements Initializable {
         if (utilisateurActuel != null) {
             System.out.println("Utilisateur connecté : " + utilisateurActuel.getNom());
             welcome.setText("Bienvenue, "+utilisateurActuel.getNom());
+        }
+        if (utilisateurActuel.getId_user() == 6) {
+            admin.setVisible(true);
+            admin.setDisable(false);
+        }else {
+            admin.setVisible(false);
+            admin.setDisable(true);
         }
         String [][] colonnes = {
                 { "Id Liste","id_liste" },
@@ -81,7 +89,13 @@ public class AccueilController implements Initializable {
     }
     @FXML
     void table() throws IOException {
-        StartApplication.changeScene("accueil/TableauUser");
+        Utilisateur utilisateurActuel = SessionUtilisateur.getInstance().getUtilisateur();
+        if (utilisateurActuel.getId_user() == 6) {
+            StartApplication.changeScene("accueil/TableauUser");
+        }else {
+            System.out.println("Vous n'avez pas les droits d'acceder a cette page");
+        }
+
     }
     @FXML
     void OnTableViewPressed(javafx.scene.input.MouseEvent event) throws IOException {

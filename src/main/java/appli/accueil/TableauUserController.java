@@ -3,6 +3,7 @@ package appli.accueil;
 import appli.StartApplication;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -51,6 +52,20 @@ public class TableauUserController implements Initializable {
     @FXML
     void retour() throws IOException {
         StartApplication.changeScene("accueil/Accueil");
+    }
+    @FXML
+    void OnTableViewPressed(javafx.scene.input.MouseEvent event) throws IOException {
+        int nbrClick = event.getClickCount();
+    }
+    public void modifier(javafx.event.ActionEvent actionEvent) throws IOException {
+        StartApplication.changeScene("accueil/ModifProfil");
+        ModifProfilController controler = (ModifProfilController) StartApplication.getControllerFromStage();
+        controler.initData(tableView.getSelectionModel().getSelectedItem().getEmail(),tableView.getSelectionModel().getSelectedItem().getNom(),tableView.getSelectionModel().getSelectedItem().getPrenom(),tableView.getSelectionModel().getSelectedItem().getId_user());
+    }
+
+    public void supprimer(ActionEvent actionEvent) {
+        utilisateurRepository.supprimerUtilisateurParEmail(tableView.getSelectionModel().getSelectedItem().getEmail());
+        tableView.getItems().remove(tableView.getSelectionModel().getSelectedItem());
     }
 }
 

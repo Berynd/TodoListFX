@@ -19,6 +19,7 @@ import java.util.ResourceBundle;
 
 public class ModifProfilController {
     private Utilisateur utilisateur;
+    private int id;
     @FXML
     private TextField email;
 
@@ -37,11 +38,18 @@ public class ModifProfilController {
     @FXML
     private UtilisateurRepository modif = new UtilisateurRepository();
 
+    public void initData(String email, String nom, String prenom, int idUser) {
+        this.email.setText(email);
+        this.nom.setText(nom);
+        this.prenom.setText(prenom);
+        this.id= idUser;
+    }
 
     public void initialize() {
         Utilisateur utilisateurActuel = SessionUtilisateur.getInstance().getUtilisateur();
         if (utilisateurActuel != null) {
             System.out.println(utilisateurActuel);
+            this.id = utilisateurActuel.getId_user();
             nom.setText(utilisateurActuel.getNom());
             prenom.setText(utilisateurActuel.getPrenom());
             email.setText(utilisateurActuel.getEmail());
@@ -51,11 +59,8 @@ public class ModifProfilController {
 
     @FXML
     void confirmer(ActionEvent event) {
-        Utilisateur utilisateurActuel = SessionUtilisateur.getInstance().getUtilisateur();
-        utilisateurActuel.setNom(nom.getText());
-        utilisateurActuel.setPrenom(prenom.getText());
-        utilisateurActuel.setEmail(email.getText());
-        modif.mettreAJourUtilisateur(utilisateurActuel);
+        Utilisateur utilisateur = new Utilisateur(this.id,nom.getText(),prenom.getText(),email.getText());
+        modif.mettreAJourUtilisateur(utilisateur);
         succes.setText("Modification prise en compte");
     }
 
