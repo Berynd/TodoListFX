@@ -9,6 +9,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import java.io.IOException;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import repository.UtilisateurRepository;
 import model.Utilisateur;
 
@@ -49,15 +51,16 @@ public class InscriptionController {
 
     @FXML
     void boutonInscription(ActionEvent event) {
-
-        Utilisateur utilisateur = new Utilisateur(nom.getText(), prenom.getText(), email.getText(), mdp.getText(), confirmationmdp.getText());
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        Utilisateur utilisateur = new Utilisateur(nom.getText(), prenom.getText(), email.getText(),encoder.encode(mdp.getText()));
                 utilisateurRepository.ajouterUtilisateur(utilisateur);
 
-        if (nom.getText().isEmpty()
+        if (       nom.getText().isEmpty()
                 || prenom.getText().isEmpty()
                 || email.getText().isEmpty()
                 || mdp.getText().isEmpty()
-                || confirmationmdp.getText().isEmpty()) {
+                )
+        {
             erreur.setText("tout les champs doivent etre rempli");
 
         }
@@ -76,6 +79,8 @@ public class InscriptionController {
             System.out.println("- " + email.getText());
             System.out.println("- " + mdp.getText());
             System.out.println("- " + confirmationmdp.getText());
+            System.out.println(utilisateur);
+            System.out.println("test");
         }
     }
 

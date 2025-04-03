@@ -26,6 +26,7 @@ public class UtilisateurRepository {
             System.out.println("Utilisateur ajouté avec succès !");
         } catch (SQLException e) {
             System.out.println("Erreur lors de l'ajout de l'utilisateur : " + e.getMessage());
+
         }
     }
 

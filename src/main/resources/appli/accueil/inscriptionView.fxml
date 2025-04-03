@@ -19,19 +19,19 @@
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="nom" alignment="CENTER" layoutX="122.0" layoutY="111.0" prefHeight="25.0" prefWidth="239.0" promptText="passard" />
+      <TextField fx:id="nom" alignment="CENTER" layoutX="122.0" layoutY="111.0" prefHeight="25.0" prefWidth="239.0" promptText="nom" />
       <Label layoutX="221.0" layoutY="173.0" text="prénom">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="prenom" alignment="CENTER" layoutX="122.0" layoutY="196.0" prefHeight="25.0" prefWidth="239.0" promptText="ethan" />
+      <TextField fx:id="prenom" alignment="CENTER" layoutX="122.0" layoutY="196.0" prefHeight="25.0" prefWidth="239.0" promptText="prenom" />
        <Label layoutX="209.0" layoutY="261.0" text="votre email :">
            <font>
                <Font name="Arial" size="12.0" />
            </font>
        </Label>
-       <TextField fx:id="email" alignment="CENTER" layoutX="122.0" layoutY="286.0" prefHeight="25.0" prefWidth="239.0" promptText="ethanpassard@gmail.com" />
+       <TextField fx:id="email" alignment="CENTER" layoutX="122.0" layoutY="286.0" prefHeight="25.0" prefWidth="239.0" promptText="email" />
        <Label layoutX="188.0" layoutY="354.0" text="votre mot de passe :" />
        <PasswordField fx:id="mdp" alignment="CENTER" layoutX="122.0" layoutY="384.0" prefHeight="25.0" prefWidth="239.0" promptText="12345678" />
        <Button fx:id="inscription" layoutX="200.0" layoutY="588.0" mnemonicParsing="false" onAction="#boutonInscription" prefHeight="25.0" prefWidth="82.0" text="inscription" />
