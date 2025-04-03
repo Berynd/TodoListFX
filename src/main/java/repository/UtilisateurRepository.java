@@ -157,13 +157,14 @@ public class UtilisateurRepository {
             System.out.println("Erreur lors de l'ajout de l'utilisateur : " + e.getMessage());
         }
     }
-    public void changeMdp(String mdp) {
+    public void changeMdp(String mdp,String email) {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String sql = "UPDATE utilisateur SET mot_de_passe = ? WHERE email = ?";
 
         try {
             PreparedStatement stmt = connexion.prepareStatement(sql);
-            stmt.setString(1,"e" );
-            stmt.setString(2, "e");
+            stmt.setString(1,encoder.encode(mdp));
+            stmt.setString(2, email);
             stmt.executeUpdate();
             System.out.println("Utilisateur modifier avec succès !");
         } catch (SQLException e) {

@@ -66,7 +66,7 @@ public class MotDePasseOublieController {
         if (textCode.equals(code.getText())) {
             StartApplication.changeScene("accueil/ChangeMdp");
             ChangeMdpController controler = (ChangeMdpController) StartApplication.getControllerFromStage();
-            controler.initData();
+            controler.initData(emailField.getText());
         }else {
             System.out.println("Le code ne correspond pas");
             erreur.setText("Le code ne correspond pas");
