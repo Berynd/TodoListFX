@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4e5d1af-15d2-4c63-bfaa-47b182ffde69" name="Changes" comment="feat : inscription change bug">
-      <change afterPath="$PROJECT_DIR$/src/main/java/appli/accueil/AccueilController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/session/SessionUtilisateur.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/appli/accueil/AccueilView.fxml" afterDir="false" />
+    <list default="true" id="c4e5d1af-15d2-4c63-bfaa-47b182ffde69" name="Changes" comment="feat:bug tp3 fini et ajout d'accuelController et View">
+      <change afterPath="$PROJECT_DIR$/src/main/java/appli/accueil/GestionUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/appli/accueil/GestionUserView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appli/accueil/inscriptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/accueil/inscriptionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appli/accueil/loginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appli/accueil/loginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repository/UtilisateurRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/UtilisateurRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/appli/accueil/inscriptionView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/appli/accueil/inscriptionView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -88,6 +84,10 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="appli.user" />
+      <recent name="appli.Utilisateur" />
+    </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -116,7 +116,8 @@
       <workItem from="1742283897358" duration="3645000" />
       <workItem from="1742476005847" duration="3282000" />
       <workItem from="1743079584418" duration="7828000" />
-      <workItem from="1743680595264" duration="4240000" />
+      <workItem from="1743680595264" duration="5778000" />
+      <workItem from="1743690150482" duration="1987000" />
     </task>
     <task id="LOCAL-00001" summary="git init">
       <option name="closed" value="true" />
@@ -142,7 +143,23 @@
       <option name="project" value="LOCAL" />
       <updated>1741880148373</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat: tp3 fini et ajout d'accuelController et View">
+      <option name="closed" value="true" />
+      <created>1743686101048</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1743686101049</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat:bug tp3 fini et ajout d'accuelController et View">
+      <option name="closed" value="true" />
+      <created>1743686125821</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1743686125821</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,7 +168,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="git init" />
     <MESSAGE value="feat : label changement et construction d'inscirptionView" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat : label changement et construction d'inscirptionView" />
+    <MESSAGE value="feat: tp3 fini et ajout d'accuelController et View" />
+    <MESSAGE value="feat:bug tp3 fini et ajout d'accuelController et View" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:bug tp3 fini et ajout d'accuelController et View" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

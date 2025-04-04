@@ -1,9 +1,11 @@
 package repository;
 
-import com.mysql.cj.protocol.Resultset;
 import database.Database;
 import model.Utilisateur;
+
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UtilisateurRepository {
     private Connection connection;
@@ -61,7 +63,7 @@ public class UtilisateurRepository {
         }
     }
 
-    public void mettreAJourUtilisateur(Utilisateur utilisateur) {
+    public List<Utilisateur> mettreAJourUtilisateur(Utilisateur utilisateur) {
         String sql = "UPDATE utilisateur SET nom = ?, prenom = ?, mdp = ?, role = ? WHERE email = ?";
         try {
             PreparedStatement rsql = connection.prepareStatement(sql);
@@ -73,6 +75,30 @@ public class UtilisateurRepository {
             System.out.println("l'utilisateur à bien été modifié !");
         } catch (SQLException e) {
             System.out.println("Erreur, les modifications n'ont pas été faites : " + e.getMessage());
+        }
+        public List<Utilisateur> findAll(){
+            List<Utilisateur> User = new ArrayList<>();
+            sql = "SELECT id_user, nom, prenom, email, mdp, role FROM utilisateur";
+
+            try (Statement stmt = connection.createStatement();
+                 ResultSet rs = stmt.executeQuery(sql)) {
+
+                while (rs.next()) {
+                    Utilisateur user = new Utilisateur(
+                            rs.getInt("id_utilisateur"),
+                            rs.getString("nom"),
+                            rs.getString("prenom"),
+                            rs.getString("email"),
+                            rs.getString("mdp")
+                    );
+                    user.setRole(rs.getString("role")); // Ajout du rôle
+                    User.add(user);
+                }
+            } catch (SQLException e) {
+                System.out.println("Erreur : " + e.getMessage());
+            }
+
+            return User;
         }
     }
 }

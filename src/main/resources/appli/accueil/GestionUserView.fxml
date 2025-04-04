@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.GestionUserController">
+   <children>
+      <TableView layoutX="-1.0" layoutY="-2.0" prefHeight="400.0" prefWidth="445.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <Button fx:id="Decoonexion" layoutX="475.0" layoutY="340.0" mnemonicParsing="false" onAction="#OnactionDeco" text="Deconnexion" textAlignment="CENTER" />
+   </children>
+</AnchorPane>
