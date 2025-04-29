@@ -65,10 +65,11 @@ public class ListeController implements Initializable{
     public void addTache(ActionEvent actionEvent) {
     }
 
-    public void addType(ActionEvent actionEvent) {
-    }
 
     public void retour(ActionEvent actionEvent) throws IOException {
         StartApplication.changeScene("accueil/Accueil");
+    }
+
+    public void invite(ActionEvent actionEvent) {
     }
 }
