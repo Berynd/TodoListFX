@@ -100,4 +100,17 @@ public class ListeRepository {
             System.out.println("Erreur lors de la supprimer liste "+e.getMessage());
         }
     }
+    public void inviteUser(int id_user, int id_liste) {
+        String sql = "INSERT INTO Utilisateur_liste(ref_utilisateur,ref_liste) VALUES (?,?)";
+        try {
+            PreparedStatement ps = connexion.prepareStatement(sql);
+            ps.setInt(1, id_user);
+            ps.setInt(2, id_liste);
+            ps.executeUpdate();
+            ps.close();
+            System.out.println("Invitation prise en compte");
+        }catch (SQLException e){
+            System.out.println("Erreur lors de la supprimer liste "+e.getMessage());
+        }
+    }
 }

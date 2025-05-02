@@ -76,12 +76,6 @@ public class Utilisateur {
 
     @Override
     public String toString() {
-        return "Utilisateur{" +
-                "id_user='" + id_user + '\'' +
-                ", nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", email='" + email + '\'' +
-                ", mdp='" + mot_de_passe + '\'' +
-                '}';
+        return nom+" "+prenom;
     }
 }
