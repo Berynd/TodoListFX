@@ -100,11 +100,21 @@ public class AccueilController implements Initializable {
     @FXML
     void OnTableViewPressed(javafx.scene.input.MouseEvent event) throws IOException {
         int nbrClick = event.getClickCount();
+        if (nbrClick == 1){
+          //  System.out.println("id : "+tableView.getSelectionModel().getSelectedItem().getId_liste());
+        //    System.out.println("nom : "+tableView.getSelectionModel().getSelectedItem().getNom());
+        }
         if (nbrClick == 2) {
-            StartApplication.changeScene("accueil/Liste");
+            System.out.println("---");
+            System.out.println("id : "+tableView.getSelectionModel().getSelectedItem().getId_liste());
+            System.out.println("nom : "+tableView.getSelectionModel().getSelectedItem().getNom());
+            System.out.println("---");
 
+            int id = tableView.getSelectionModel().getSelectedItem().getId_liste();
+            String nom = tableView.getSelectionModel().getSelectedItem().getNom();
+            StartApplication.changeScene("accueil/Liste");
             ListeController controler = (ListeController) StartApplication.getControllerFromStage();
-            controler.initData(tableView.getSelectionModel().getSelectedItem().getNom(),tableView.getSelectionModel().getSelectedItem().getId_liste());
+            controler.initData(tableView.getSelectionModel().getSelectedItem());
         }
     }
     @FXML

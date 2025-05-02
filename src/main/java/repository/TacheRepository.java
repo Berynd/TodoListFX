@@ -14,26 +14,27 @@ public class TacheRepository {
         connection = Database.getConnexion();
     }
 
-    public void ajouterTache(Tache tache) {
-        String sql = "INSERT INTO taches(nom,etat,ref_liste,ref_type) VALUES (?,?,?,?)";
+    public void ajouterTache(String nom,int id_liste,int id_type) {
+        String sql = "INSERT INTO tache(nom,etat,ref_liste,ref_type) VALUES (?,?,?,?)";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, tache.getNom());
-            ps.setInt(2,tache.getEtat());
-            ps.setInt(3,tache.getRef_liste());
-            ps.setInt(4,tache.getRef_type());
+            ps.setString(1, nom);
+            ps.setInt(2,0);
+            ps.setInt(3,id_liste);
+            ps.setInt(4,id_type);
             ps.executeUpdate();
 
-            System.out.println("Ajout de la tache "+ tache.getNom()+" reussi");
+            System.out.println("Ajout de la tache "+ nom+" reussi");
         }catch (SQLException e) {
             System.out.println("Erreur lors de l'ajout de la tache : " + e.getMessage());
         }
     }
-    public ArrayList<Tache> getAllTache() {
+    public ArrayList<Tache> getAllTache(int id) {
         ArrayList<Tache> taches = new ArrayList<>();
-        String sql = "SELECT t.id_tache,t.nom as nomTache,t.etat, l.nom as nomListe, type.nom as nomType FROM `tache` as t INNER JOIN liste as l ON l.id_liste = t.ref_liste INNER JOIN type ON type.id_type = t.ref_type";
+        String sql = "SELECT t.id_tache,t.nom as nomTache,t.etat, l.nom as nomListe, type.nom as nomType FROM `tache` as t INNER JOIN liste as l ON l.id_liste = t.ref_liste INNER JOIN type ON type.id_type = t.ref_type WHERE t.ref_liste = ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, id);
             stmt.executeQuery();
             ResultSet rs = stmt.getResultSet();
             while (rs.next()){

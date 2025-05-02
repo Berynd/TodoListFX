@@ -11,8 +11,18 @@ public class Type {
         this.codeCouleur = codeCouleur;
     }
 
+    public Type(int id_type, String nom) {
+        this.id_type = id_type;
+        this.nom = nom;
+
+    }
+
     public Type(String codeCouleur, String nom) {
         this.codeCouleur = codeCouleur;
+        this.nom = nom;
+    }
+
+    public Type(String nom) {
         this.nom = nom;
     }
 
@@ -38,5 +48,9 @@ public class Type {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+    @Override
+    public String toString() {
+        return nom;
     }
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="338.0" prefWidth="521.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.InviteController">
+   <children>
+      <Button fx:id="confirm" layoutX="226.0" layoutY="198.0" mnemonicParsing="false" text="Confirmer" />
+      <ComboBox fx:id="allUser" layoutX="186.0" layoutY="156.0" prefWidth="150.0" />
+      <Label layoutX="186.0" layoutY="139.0" text="Tous les utilisateurs :" />
+      <Label layoutX="94.0" layoutY="23.0" text="Invitez un autre utilisateur a votre liste !">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="442.0" layoutY="299.0" mnemonicParsing="false" text="retour" onAction="#retour" />
+   </children>
+</AnchorPane>
