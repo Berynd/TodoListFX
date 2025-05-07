@@ -17,9 +17,10 @@ public class Type {
 
     }
 
-    public Type(String codeCouleur, String nom) {
-        this.codeCouleur = codeCouleur;
+    public Type(String nom,String codeCouleur ) {
         this.nom = nom;
+        this.codeCouleur = codeCouleur;
+
     }
 
     public Type(String nom) {

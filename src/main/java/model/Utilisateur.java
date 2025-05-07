@@ -76,6 +76,6 @@ public class Utilisateur {
 
     @Override
     public String toString() {
-        return nom+" "+prenom;
+        return email;
     }
 }

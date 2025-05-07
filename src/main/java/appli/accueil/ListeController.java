@@ -129,4 +129,20 @@ public class ListeController implements Initializable{
         }
 
     }
+    @FXML
+    void OnTableViewPressed(javafx.scene.input.MouseEvent event) throws IOException {
+        int nbrClick = event.getClickCount();
+        if (nbrClick == 2) {
+            int etape = tache.getEtat(tableView.getSelectionModel().getSelectedItem().getId_tache());
+            tache.etape(tableView.getSelectionModel().getSelectedItem().getId_tache(),etape);
+            StartApplication.changeScene("accueil/Liste");
+            ListeController controler = (ListeController) StartApplication.getControllerFromStage();
+            controler.initData(maliste);
+        }
+    }
+
+    public void sup(ActionEvent actionEvent) {
+        tache.supprimerTache(tableView.getSelectionModel().getSelectedItem().getId_tache());
+        tableView.getItems().remove(tableView.getSelectionModel().getSelectedItem());
+    }
 }

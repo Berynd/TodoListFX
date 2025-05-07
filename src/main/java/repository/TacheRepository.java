@@ -46,4 +46,51 @@ public class TacheRepository {
         }
         return taches;
     }
+    public int getEtat(int id) {
+        int etat = 0;
+        String sql = "SELECT etat FROM `tache` WHERE id_tache = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, id);
+            stmt.executeQuery();
+            ResultSet rs = stmt.getResultSet();
+            while (rs.next()){
+                etat = rs.getInt("etat");
+            }
+        }catch (SQLException e) {
+            System.out.println("Erreur lors de l'ajout de la tache : " + e.getMessage());
+        }
+        return etat;
+    }
+    public void etape (int id,int etat){
+        int nextEtat = etat;
+        if (etat == 0){
+            nextEtat = 1;
+        } else if (etat == 1) {
+            nextEtat = 2;
+        }else if (etat == 2){
+            nextEtat = 0;
+        }
+        String sql = "UPDATE tache SET etat = ? WHERE id_tache = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, nextEtat);
+            stmt.setInt(2, id);
+            stmt.executeUpdate();
+            System.out.println("etat modifier avec succès !");
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de l'ajout de l'utilisateur : " + e.getMessage());
+        }
+    }
+    public void supprimerTache(int id) {
+        String sql = "DELETE FROM tache WHERE id_tache = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+            System.out.println("tache supprimer avec succès !");
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de l'ajout de l'utilisateur : " + e.getMessage());
+        }
+    }
 }
