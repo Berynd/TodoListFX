@@ -3,10 +3,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 public class Database {
-    private static final String SERVEUR = "localhost:3306";
-    private static final String NOM_BDD = "mls_javafx";
+    private static final String SERVEUR = "localhost:8889";
+    private static final String NOM_BDD = "SLAM1_todolist";
     private static final String UTILISATEUR = "root";
-    private static final String MOT_DE_PASSE = "";
+    private static final String MOT_DE_PASSE = "root";
     private static String getUrl() {
         return "jdbc:mysql://" + SERVEUR + "/" + NOM_BDD + "?serverTimezone=UTC";
     }
