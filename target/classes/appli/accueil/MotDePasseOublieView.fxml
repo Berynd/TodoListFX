@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="348.0" prefWidth="413.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.MotDePasseOublieController">
+   <children>
+      <Button layoutX="172.0" layoutY="210.0" mnemonicParsing="false" onAction="#confirmer" text="Confirmer" />
+      <Button layoutX="181.0" layoutY="244.0" mnemonicParsing="false" onAction="#retour" text="Retour" />
+      <Label fx:id="erreur" alignment="TOP_CENTER" layoutX="100.0" layoutY="185.0" prefHeight="17.0" prefWidth="216.0" textFill="#ff4200" />
+      <TextField fx:id="emailField" layoutX="133.0" layoutY="153.0" />
+      <Label layoutX="133.0" layoutY="124.0" text="Email :" />
+      <Label alignment="TOP_CENTER" layoutX="108.0" layoutY="35.0" prefHeight="61.0" prefWidth="197.0" text="Mot de passe oublié">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Button fx:id="valider" visible="false" layoutX="181.0" layoutY="309.0" mnemonicParsing="false" onAction="#validerCode" text="vérifier" />
+      <PasswordField fx:id="code" layoutX="133.0" layoutY="276.0" visible="false"/>
+   </children>
+</AnchorPane>
